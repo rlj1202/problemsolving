@@ -1,0 +1,32 @@
+2018 11 5
+
+부르트 포스
+- DFS
+- BFS
+
+최단경로
+- 플로이드 와샬
+- 벨만 포드
+- 다익스트라
+- SPFA(Shortest Path Fast Algorithm)
+
+그래프 표현 방법
+- 인접행렬
+	int adj[N][N]
+
+	adj[from][to] = cost
+- 인접리스트
+	vector<pair<int, int>> adj[N]
+
+	adj[from].push_back(make_pair(cost, to))
+
+
+플로이드 와샬
+
+Q. 왜 for 문 순서가 k, i, j 인가?
+
+for k
+	for i
+		for j
+
+한 최단 경로에 같은 장점을 여러번 넣으면 더이상 최단 경로가 아님.

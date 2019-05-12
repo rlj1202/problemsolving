@@ -1,0 +1,5 @@
+2 3 3 3
+>> 27
+
+R
+R R    R G    G R    R B    B R     G B    B G     G G    B B
