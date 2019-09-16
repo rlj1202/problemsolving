@@ -1,69 +1,65 @@
-#include <iostream>
-#include <algorithm>
+#include <cstdio>
 #include <cmath>
-
-#define MAX_LEN 20
+#include <limits>
+#include <algorithm>
 
 using namespace std;
 
-int T;
-int N;
-int x[MAX_LEN];
-int y[MAX_LEN];
+struct Point {
+	long long x, y;
 
-int al(int *arr, int len) {
-	int l[MAX_LEN];
-	int r[MAX_LEN];
+	Point() : Point(0, 0) {}
+	Point(long long x, long long y) : x(x), y(y) {}
 
-	int sumL = 0;
-	int sumR = 0;
+	Point operator+ (const Point &p) {
+		return {x + p.x, y + p.y};
+	}
+	Point operator- (const Point &p) {
+		return {x - p.x, y - p.y};
+	}
+	double len() {
+		return sqrt(x*x + y*y);
+	}
+};
 
-	for (int i = 0; i < len; i += 2) {
-		l[i / 2] = arr[i];
-		r[i / 2] = arr[i + 1];
-		sumL += arr[i];
-		sumR += arr[i + 1];
+Point points[22];
+
+double minsum(Point &sum, int cur, int count, int max, Point accum) {
+	if (count == max / 2) {
+		Point result = sum - accum - accum;
+		return result.len();
 	}
 
-	bool updated = true;
-	while (updated) {
-		updated = false;
+	double minvalue = numeric_limits<double>::max();
 
-		for (int i = 0; i < len / 2; i++) {
-			for (int j = 0; j < len / 2; j++) {
-				int newSumL = sumL - l[i] + r[j];
-				int newSumR = sumR - r[j] + l[i];
-
-				if (abs(newSumL - newSumR) < abs(sumL - sumR)) {
-					int tmp = l[i];
-					l[i] = r[j];
-					r[j] = tmp;
-					sumL = newSumL;
-					sumR = newSumR;
-					updated = true;
-				}
-			}
-		}
+	for (int i = cur; i < max; i++) {
+		double result = minsum(sum, i + 1, count + 1, max, accum + points[i]);
+		minvalue = min(minvalue, result);
 	}
-	
-	int result = abs(sumL - sumR);
-	return result;
+
+	return minvalue;
 }
 
 int main() {
+	int T;
 	scanf("%d", &T);
 
 	while (T--) {
+		int N;
 		scanf("%d", &N);
 
-		for (int n = 0; n < N; n++)
-			scanf("%d %d", x + n, y + n);
+		Point sum;
 
-		double sumX = al(x, N);
-		double sumY = al(y, N);
+		for (int n = 0; n < N; n++) {
+			int x, y;
+			scanf("%d %d", &x, &y);
+			points[n] = {x, y};
+			sum = sum + points[n];
+		}
 
-		double distance = sqrt(sumX * sumX + sumY * sumY);
-		printf("%.12lf\n", distance);
+		double result = minsum(sum, 0, 0, N, Point());
+
+		printf("%.12f\n", result);
 	}
 
 	return 0;

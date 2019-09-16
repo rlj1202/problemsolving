@@ -1,0 +1,27 @@
+5
+a
+ac
+ab
+adab
+adada
+1
+acabadadab
+
+
+!!! counter case
+2
+bab
+a
+1
+bac
+
+
+!!! counter case
+4
+aaaa
+aa
+aaabc
+baaacd
+1
+baaab
+
