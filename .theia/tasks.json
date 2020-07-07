@@ -3,10 +3,10 @@
 	// for the documentation about the tasks.json format
 	"version": "2.0.0",
 	"tasks": [
-		{
-			"label": "C++ Compile Single Source",
-			"type": "shell",
-			"command": "c++ -o ${fileDirname}/${fileBasenameNoExtension} ${file}",
+        {
+            "label": "C++ Compile Single Source",
+            "type": "shell",
+            "command": "c++ -o ${fileDirname}/${fileBasenameNoExtension} ${file}",
             "presentation": {
                 "echo": false,
                 "reveal": "always",
@@ -15,12 +15,13 @@
                 "showReuseMessage": false,
                 "clear": true
             },
-            "group": "build"
-		},
+            "group": "build",
+            "problemMatcher": []
+        },
         {
             "label": "C++ Execute Single Source",
-			"type": "shell",
-			"command": "cd ${fileDirname} && ./${fileBasenameNoExtension} && read -rsp $'Press enter to continue...\n'",
+            "type": "shell",
+            "command": "cd ${fileDirname} && ./${fileBasenameNoExtension} && read -rsp $'Press any key or wait 5 seconds to continue...\n' -n 1 -t 5",
             "dependsOn": [
                 "C++ Compile Single Source"
             ],
@@ -31,7 +32,8 @@
                 "panel": "shared",
                 "showReuseMessage": true,
                 "clear": true
-            }
+            },
+            "problemMatcher": []
         }
-	]
+    ]
 }
