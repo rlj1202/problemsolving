@@ -20,11 +20,11 @@ int main() {
 		int cur = q.front(); q.pop();
 		if (cur == G) break;
 
-		if (cur + U <= 1000000 && visited[cur + U] == -1) {
+		if (cur + U <= F && visited[cur + U] == -1) {
 			visited[cur + U] = visited[cur] + 1;
 			q.push(cur + U);
 		}
-		if (cur - D && visited[cur - D] == -1) {
+		if (cur - D >= 1 && visited[cur - D] == -1) {
 			visited[cur - D] = visited[cur] + 1;
 			q.push(cur - D);
 		}
