@@ -1,15 +1,31 @@
 #include <cstdio>
 
-const int SIZE = 50;
-int fibo[SIZE];
+using namespace std;
+
+class A {
+public:
+    A() {
+        printf("Im in\n");
+    }
+    A(const A&& a) {
+        this->value = a.value;
+        printf("Im moved\n");
+    }
+    ~A() {
+        printf("Im out\n");
+    }
+
+private:
+    int value;
+};
+
+A test() {
+    return A();
+}
 
 int main() {
-    fibo[0] = 1;
-    fibo[1] = 1;
-    for (int i = 2; i < SIZE; i++) {
-        fibo[i] = fibo[i - 1] + fibo[i - 2];
-        printf("%d\n", fibo[i]);
-    }
+    A a = test();
+    printf("----------------------------------------\n");
 
     return 0;
 }
