@@ -10,7 +10,7 @@ int main() {
     v.push_back(3);
 
     for (int i : v) {
-        
+        printf("%d \n", i);
     }
 
     return 0;
