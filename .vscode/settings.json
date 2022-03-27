@@ -2,6 +2,8 @@
     "files.associations": {
         "algorithm": "cpp",
         "vector": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "xtree": "cpp",
+        "xtr1common": "cpp"
     }
 }
