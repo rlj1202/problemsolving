@@ -4,6 +4,9 @@
         "vector": "cpp",
         "xutility": "cpp",
         "xtree": "cpp",
-        "xtr1common": "cpp"
+        "xtr1common": "cpp",
+        "cstdio": "cpp",
+        "stack": "cpp",
+        "xstddef": "cpp"
     }
 }
