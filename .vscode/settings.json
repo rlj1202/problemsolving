@@ -7,6 +7,8 @@
         "xtr1common": "cpp",
         "cstdio": "cpp",
         "stack": "cpp",
-        "xstddef": "cpp"
+        "xstddef": "cpp",
+        "queue": "cpp",
+        "utility": "cpp"
     }
 }
