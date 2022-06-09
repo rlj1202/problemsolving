@@ -9,6 +9,13 @@
         "stack": "cpp",
         "xstddef": "cpp",
         "queue": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "deque": "cpp",
+        "functional": "cpp",
+        "memory": "cpp",
+        "string": "cpp",
+        "tuple": "cpp",
+        "xlocnum": "cpp",
+        "xstring": "cpp"
     }
 }
