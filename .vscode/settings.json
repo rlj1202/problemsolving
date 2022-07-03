@@ -17,6 +17,8 @@
         "tuple": "cpp",
         "xlocnum": "cpp",
         "xstring": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "bitset": "cpp"
     }
 }
