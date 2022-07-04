@@ -19,6 +19,8 @@
         "xstring": "cpp",
         "iostream": "cpp",
         "*.tcc": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "cmath": "cpp",
+        "complex": "cpp"
     }
 }
