@@ -21,6 +21,9 @@
         "*.tcc": "cpp",
         "bitset": "cpp",
         "cmath": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "cstddef": "cpp",
+        "iomanip": "cpp",
+        "istream": "cpp"
     }
 }
