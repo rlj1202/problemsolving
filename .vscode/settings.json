@@ -24,6 +24,7 @@
         "complex": "cpp",
         "cstddef": "cpp",
         "iomanip": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "iosfwd": "cpp"
     }
 }
