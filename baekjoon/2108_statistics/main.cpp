@@ -1,55 +1,70 @@
-#include <cstdio>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int values[500005];
+typedef long long ll;
+typedef pair<int, int> pii;
 
-int sum;
-
-int maxcount;
-int frequentValue;
-bool updated;
+int arr[500005];
 
 int main() {
+    ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+
 	int N;
-	scanf("%d", &N);
+	cin >> N;
+
+	ll sum = 0;
+	int min_value = 0x3f3f3f3f;
+	int max_value = -0x3f3f3f3f;
+
 	for (int n = 0; n < N; n++) {
-		scanf("%d", values + n);
+		cin >> arr[n];
+		sum += arr[n];
+		min_value = min(min_value, arr[n]);
+		max_value = max(max_value, arr[n]);
 	}
 
-	sort(values, values + N);
+	sort(arr, arr + N);
 
-	int prev = values[0];
-	int count = 0;
+	int mid = arr[N / 2];
 
-	for (int n = 0; n < N + 1; n++) {
-		if (prev == values[n]) {
-			count++;
+	vector<int> frequencies;
+	int most_frequent = 0;
+
+	int cnt = 0;
+	int prev = arr[0];
+	for (int n = 0; n < N; n++) {
+		int cur = arr[n];
+
+		if (cur == prev) {
+			cnt++;
 		} else {
-			if (maxcount < count) {
-				maxcount = count;
-
-				frequentValue = prev;
-				updated = false;
-			} else if (maxcount == count) {
-				if (!updated && frequentValue < prev) {
-					updated = true;
-					frequentValue = prev;
-				}
+			if (most_frequent < cnt) {
+				most_frequent = cnt;
+				frequencies.clear();
 			}
-
-			prev = values[n];
-			count = 1;
+			if (most_frequent == cnt) {
+				frequencies.push_back(prev);
+			}
+			cnt = 1;
 		}
 
-		sum += values[n];
+		prev = cur;
+	}
+	if (most_frequent < cnt) {
+		most_frequent = cnt;
+		frequencies.clear();
+	}
+	if (most_frequent == cnt) {
+		frequencies.push_back(prev);
 	}
 
-	printf("%.0f\n", (double) sum / N);
-	printf("%d\n", values[N / 2]);
-	printf("%d\n", frequentValue);
-	printf("%d\n", values[N - 1] - values[0]);
+	sort(frequencies.begin(), frequencies.end());
 
-	return 0;
+    cout << (ll) round(sum / (double) N) << '\n';
+	cout << mid << '\n';
+	cout << frequencies[min(1, (int) frequencies.size() - 1)] << '\n';
+	cout << (max_value - min_value) << '\n';
+
+    return 0;
 }
