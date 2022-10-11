@@ -1,3 +1,4 @@
-*.exe
 /test
-/.vscode/c_cpp_properties.json
+/.vscode
+
+*.exe
