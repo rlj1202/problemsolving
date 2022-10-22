@@ -1,4 +1,11 @@
-/test
+# Ignore all files without extension, which is mostly a executable in unix
+*
+!/**
+!*.*
+
+# VScode
 /.vscode
+
+/test
 
 *.exe
