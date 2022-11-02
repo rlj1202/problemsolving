@@ -1,32 +1,48 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int N;
-int D[10004];
-int maxPay;
+struct element {
+	int pay, day;
+
+	bool operator<(const element &o) const {
+		return day < o.day;
+	}
+};
+
+priority_queue<element> elements;
+priority_queue<int> pq;
 
 int main() {
-	scanf("%d", &N);
+	ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
 
-	for (int n = 1; n <= N; n++) {
-		int p, d;
-		scanf("%d %d", &p, &d);
+	int N;
+	cin >> N;
 
-		for (int day = d; day > 0; day--) {
-		}
+	for (int n = 0; n < N; n++) {
+		int pay, day;
+		cin >> pay >> day;
 
-		maxPay = max(maxPay, p);
+		elements.push({ pay, day });
 	}
 
 	int sum = 0;
 
-	for (int day = 1; day <= 10000; day++) {
-		sum += D[day];
+	for (int today = 10000; today >= 1; today--) {
+		while (!elements.empty()) {
+			if (elements.top().day < today) break;
+
+			pq.push(elements.top().pay);
+			elements.pop();
+		}
+
+		if (pq.empty()) continue;
+
+		sum += pq.top();
+		pq.pop();
 	}
 
-	printf("%d\n", sum);
+	cout << sum << '\n';
 
 	return 0;
 }
