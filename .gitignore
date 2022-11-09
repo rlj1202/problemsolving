@@ -1,6 +1,7 @@
-# Ignore all files without extension, which is mostly a executable in unix
+# Ignore all files without extension, which is mostly a executable
+# in unix-like system.
 *
-!/**
+!/**/
 !*.*
 
 # VScode
