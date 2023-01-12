@@ -1,0 +1,1 @@
+{"name":"Local: A","url":"/Users/jisu/dev/problemsolving/codeforces/1775/A.cpp","tests":[{"id":1673349722106,"input":"5\nbbba\naba\naaa\nabba\nabbb\n","output":"b bb a\na b a\na a a\nab b a\na bb b"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/jisu/dev/problemsolving/codeforces/1775/A.cpp","group":"local","local":true}
