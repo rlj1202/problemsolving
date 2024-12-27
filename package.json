@@ -1,0 +1,7 @@
+{
+  "name": "problemsolving",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "16"
+  }
+}
